@@ -5,8 +5,10 @@ const xhr = new XMLHttpRequest();
 function onRequestHandler() {
     if(this.readyState == 4 && this.status == 200) {
 
-        const data = (this.response);
-        console.log(data);
+        const data = JSON.parse(this.response);
+        const HTMLResponse = document.querySelector("app");
+       
+        const tlp = data.map((user) => `<li>${user.name} ${user.email}</li>`);
 
     }
 }
